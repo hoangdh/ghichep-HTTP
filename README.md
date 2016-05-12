@@ -14,11 +14,24 @@ Như đã giới thiệu ở phần trên, HTTP hoạt động theo mô hình cl
 
 #### REQUEST METHOD
 
+Là những bản tin được gửi đi từ Client đến Server.
 
 <img src="http://img.prntscr.com/img?url=http://i.imgur.com/UEypQ2Z.png" >
 
-
 #### RESPONSE METHOD
 
+Là những bản tin server trả về client những thông tin mà client yêu cầu từ gói REQUEST trước.
+
 <img src="http://img.prntscr.com/img?url=http://i.imgur.com/vgEG4Qz.png" />
+
+#### Một số HTTP Menthod
+| TÊN | MÔ TẢ |
+|---|---|
+|**GET**| Gửi yêu cầu để lấy một tài nguyên nào đó trên máy chủ.|
+|**POST**| Đưa thông tin lên server.|
+|**PUT**| Lưu trữ các dữ liệu, thông tin dưới dạng URL |
+|**DELETE**| Xóa các URL đã lưu ở PUT |
+| **HEAD**| Lấy ra thông tin ở dữ liệu bên trong URL |
+| **TRACE**| Xem bản tin, dữ liệu đi qua bao nhiêu máy chủ |
+
 
