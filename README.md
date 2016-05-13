@@ -106,6 +106,9 @@ Trên đây là một số lỗi thường gặp, để xem chi tiết vui lòng
 - Là bộ lưu trữ tạm thời những trang, những bài viết,... đã được Client truy cập trước đó
 - Mục đích của cache là giảm thời gian, tài nguyên của client và server khi muốn truy cập lại những gì đã từng truy vấn tới server
 
+#### COOKIE
 
-
+- Là tập tin chứa những dữ liệu người dùng được Server ghi lại và gửi về client
+- Thường được sử dụng trên các website dạng forum hoặc thương mại điện tử, có lượng truy cập cao và cơ sở dữ liệu lớn
+- Sau một thời gian nhất định, cookie sẽ được xóa
 
