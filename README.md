@@ -49,16 +49,12 @@ Cụ thể các mã như sau:
 
 ##### 1xx Informational
 
-```
 - **100 Continue**: Server nhận các request header, client xử lý để gửi các request body. Nếu các request body quá lớn được gửi tới server mà server chưa xử lý kịp và sẽ bị từ chối, khi đó client gửi mã trạng thái này lên.
 - **101 Switching Protocol**: Requester hỏi server về các giao thức định tuyến, server sẽ chấp thuận.
 - **102 Processing**: Server đang xử lý các yêu cầu mà chưa kịp trả lời cho client.
 
-```
-
 ##### 2xx Success
 
-```
 - **200 OK**: Thành công.
 - **201 Created**: Đã khởi tạo thành công.
 - **202 Accepted**: Đã được chấp thuận.
@@ -69,35 +65,28 @@ Cụ thể các mã như sau:
 - **207 Multi-Status**: Đa trạng thái, nhận nhiều trạng thái trả về cùng một lúc
 - **208 Already Reported**: Đã gửi các yêu cầu nhưng chưa thấy trả lời.
 - **226 IM Used**: Server đã nhận được đầy đủ các request.
-```
 
 ##### 3xx Redirection
 
-```
 - **301 Moved Permanently**: Luôn chuyển tiếp
 - **302 Found**: Khi client yêu cầu, server sẽ tìm và chuyển tiếp nếu tìm thấy hoặc hợp lệ
 - **303 See other**: Khi nhận được các phương thức POST, PUT hoặc DELETE, client coi như server đã nhận được và chuyển tiếp với thông điệp GET.
 - **305 Use Proxy**: Sử dụng proxy 
-```
 
 ##### 4xx Client Errors
 
-```
 - **400 Bad Request**: Server không thể xử lý các request từ client như sai cú pháp, site đường dẫn,...
 - **403 Forbidden**: Không có quyền xem
 - **404 Not Found**: Request các nội dung có từ trước nhưng đã bị gỡ bỏ.
 - **408 Request Timeout**: Request của client quá thời gian, hoặc do kết nối của client có vấn đề
-```
 
 ##### 5xx Server Errors
 
-```
 - **500 Internal Server Error**: Lỗi máy chủ nội bộ
 - **502 Bad Gateway**: Gateway hoặc proxy của server bị lỗi
 - **503 Service Unavailable**: Dịch vụ chưa sẵn sàng
-```
 
-Trên đây là một số lỗi thường gặp, để xem chi tiết vui lòng bấm vào <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" >đây</a>.
+Trên đây là một số lỗi thường gặp, để xem chi tiết vui lòng bấm vào <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" >đây</a>.
 
 #### CACHE
 
