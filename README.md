@@ -29,6 +29,19 @@ Là những bản tin được gửi đi từ Client đến Server.
 | **HEAD**| Lấy ra thông tin ở dữ liệu bên trong URL |
 | **TRACE**| Xem bản tin, dữ liệu đi qua bao nhiêu máy chủ |
 
+#### REQUEST HEADER
+
+Một số trường cần chú ý
+
+| Tên trường | Mô tả |
+|---|---|
+|Accept | Loại nội dung có thể nhận từ thông điệp Response. VD: css, js,...|
+| Accept-Encoding| Chấp nhận các kiểu file nén|
+|Connection| Tùy chọn điều khiển cho kết nối hiện thời. VD: Keep-alive, Upgrade,...|
+|Cookie| Thông tin HTTP Cookie từ server|
+|User-Agent| Thông tin về người dùng, tên trình duyệt sử dụng...|
+
+
 #### RESPONSE METHOD
 
 Là những bản tin server trả về client những thông tin mà client yêu cầu từ gói REQUEST trước.
