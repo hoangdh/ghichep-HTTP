@@ -27,6 +27,8 @@ Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache l�
 
 Trong giải pháp này, `NGINX` đóng vai trò là một `Reverse Proxy` (Proxy  ngược) và xử lý các trang tĩnh, còn các trang động sẽ được chuyển cho `Apache` xử lý sau đó trả kết quả về cho `NGINX`.
 
+<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp3_zpsuuahyyuz.png" />
+
 <a name="1.1"></a>
 ### 1.1 Mô hình
 
