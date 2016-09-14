@@ -30,7 +30,7 @@ Trong giải pháp này, `NGINX` đóng vai trò là một `Reverse Proxy` (Prox
 <a name="1.1"></a>
 ### 1.1 Mô hình
 
-<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/RP-2_zpskoqy2wg0.png" />
+<img width=75% src="http://i1363.photobucket.com/albums/r714/HoangLove9z/RP-2_zpskoqy2wg0.png" />
 
  | Reverse Proxy | Webserver | USER |
 --- | --- | --- | --- |
@@ -49,14 +49,14 @@ Package| NGINX | APACHE | Firefox + WireShark |
 <a name="1.3"></a>
 ### 1.3 Mô tả hoạt động
 
-- Bước 1: Request của USER` đến `Reverse Proxy`
-- Bước 2: Request của USER được Reverse Proxy chuyển đến Webserver
-- Bước 3: Webserver trả về reponse cho Reverse Proxy, cache được lưu lại ở Reverse Proxy
-- Bước 4: Reverse Proxy trả reponse cho USER
-- Bước 5: Request của USER lần thứ 2 đến Reverse Proxy
-- Bước 6: Request của USER lần thứ 2 được Reverse Proxy xử lý, nếu request yêu cầu có sẵn trong cache thì trả lại cho USER, nếu chưa có thì quay lại `Bước 2`.
+- Bước 1: Request của `USER` đến `Reverse Proxy`
+- Bước 2: Request của `USER` được `Reverse Proxy` chuyển đến `Webserver`
+- Bước 3: Webserver trả về reponse cho `Reverse Proxy`, cache được lưu lại ở `Reverse Proxy`
+- Bước 4: `Reverse Proxy` trả reponse cho `USER`
+- Bước 5: Request của `USER` lần thứ 2 đến `Reverse Proxy`
+- Bước 6: Request của `USER` lần thứ 2 được `Reverse Proxy` xử lý, nếu request yêu cầu có sẵn trong cache thì trả lại cho `USER`, nếu chưa có thì quay lại `Bước 2`, và tương tự như vậy đến lần thứ n.
 
-<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/luong-rp_zpsvc4xzsvy.png" />
+<img width=75% src="http://i1363.photobucket.com/albums/r714/HoangLove9z/luong-rp_zpsvc4xzsvy.png" />
 
 <a name="2"></a>
 ## 2. Phân tích hoạt động
