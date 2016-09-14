@@ -49,7 +49,7 @@ Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache l�
 <a name="1.2"></a>
 ### 1.2 Mô hình cài đặt
 
-<img width=75% src="http://i1363.photobucket.com/albums/r714/HoangLove9z/RP-2_zpskoqy2wg0.png" />
+<img width=75% src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp-3_zpsvkjlv5iv.png" />
 
  | Reverse Proxy | Webserver |
 --- | --- | --- |
@@ -195,10 +195,10 @@ Trong một số trường hợp, chúng ta cần bảo vệ một số thư m�
     
 Sau khi cấu hình xong, chúng ta cho nginx load lại file cấu hình.
 
-    ```sh
-    nginx -s reload
-    ```
-    
+```sh
+nginx -s reload
+```
+
 <a name="4.2"></a>
 
 Kiểm tra trên máy tính có IP  192.168.100.250, ta thấy truy cập đã bị chặn.
