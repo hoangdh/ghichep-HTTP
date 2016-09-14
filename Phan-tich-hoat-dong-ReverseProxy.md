@@ -1,9 +1,8 @@
 # Phân tích hoạt động của Reverse Proxy có lưu cache
 
-
 ### Menu
 
-1. Giới thiệu ](#1)
+[1. Giới thiệu ](#1)
 
 - [1.1 Mô hình ](#1.1)
 - [1.2 Lợi ích khi sử dụng Reverse Proxy ](#1.2)
@@ -14,19 +13,21 @@
 - [Request của USER thứ 1](#2.1)
 - [Request của USER thứ 2](#2.2)
 
-[3. Kết luận ](#3)
+[3. Kết luận](#3)
 
 <a name="1"></a>
 ## 1. Giới thiệu
 
 Apache và NGINX là 2 hệ thống Web server phổ biến và được sử dụng rộng dãi trong nhiều hệ thống lớn với ưu điểm chung đều là các phần mềm OpenSource. Apache nổi tiếng làm việc hiệu quả với những xử lý động như PHP,... Về NGINX, điểm mạnh của nó là xử lý rất nhanh các web tĩnh. Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache lại với nhau để bổ trợ cho nhau giúp hệ thống Webserver thêm phần hoàn thiện và đạt hiệu quả cao.
 
+Trong giải pháp này, NGINX đóng vai trò là một Reverse Proxy (Proxy phân giải ngược) 
+
 <a name="1.1"></a>
 ### 1.1 Mô hình
 
 <img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp_zpsm4wwklir.png" />
 
- | HAProxy 1 | HAProxy 2 | USER |
+ | Reverse Proxy | Webserver | USER |
 --- | --- | --- | --- |
 OS | Ubuntu 16.04 | Ubuntu 16.04 | Windows 7 |
 NIC | eth0 | eth0 | LAN |
