@@ -102,8 +102,10 @@ Package| NGINX | APACHE |
         
 <img src="http://image.prntscr.com/image/d0e39f11456d454d9fb8b0206d343827.png" />
     
-    - Bật nginx và cho khởi động cùng hệ thống
-    
+   
+   - Bật nginx và cho khởi động cùng hệ thống
+
+   
         ```
         systemctl start nginx
         systemctl enable nginx
@@ -123,6 +125,7 @@ Package| NGINX | APACHE |
 - Cấu hình
     
     - Tạo file `index.php` để test thử
+    
     
     ```
         echo '<?php phpinfo(); ?>' > /var/www/html/index.php
@@ -176,10 +179,10 @@ Trong một số trường hợp, chúng ta cần bảo vệ một số thư m�
 ...
 ```
 
-    - `/patch/to/folder/`: Thay thế thư mục bạn muốn bảo vệ vào 
-    - `allow 192.168.100.5;`: Cho phép IP 192.168.100.5 truy cập vào thư mục
-    - `deny all`: Cấm tất cả không cho phép truy cập trừ những IP `allow`
-    - `proxy_pass http://192.168.100.195/$uri;`: Đẩy request này sang Webserver `192.168.100.195`
+- `/patch/to/folder/`: Thay thế thư mục bạn muốn bảo vệ vào 
+- `allow 192.168.100.5;`: Cho phép IP 192.168.100.5 truy cập vào thư mục
+- `deny all`: Cấm tất cả không cho phép truy cập trừ những IP `allow`
+- `proxy_pass http://192.168.100.195/$uri;`: Đẩy request này sang Webserver `192.168.100.195`
     
 Sau khi cấu hình xong, chúng ta cho nginx load lại file cấu hình.
 
