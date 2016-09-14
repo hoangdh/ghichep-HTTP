@@ -194,11 +194,10 @@ Sau khi cấu hình xong, chúng ta cho nginx load lại file cấu hình.
     ```sh
     nginx -s reload
     ```
-
 <a name="4.2"></a>
 Kiểm tra trên máy tính có IP  192.168.100.250, ta thấy truy cập đã bị chặn.
 
-<img align="middle" src="http://image.prntscr.com/image/ab136ebb25334ad29f26c207426cdccb.png" />
+<img width=150% src="http://image.prntscr.com/image/ab136ebb25334ad29f26c207426cdccb.png" />
 
 Kiểm tra trên máy tính có IP là 192.168.100.5, ta có thể vào bình thường.
 
