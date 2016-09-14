@@ -10,8 +10,8 @@
 
 [2. Phân tích hoạt động ](#2)
 
-- [Request của USER thứ 1](#2.1)
-- [Request của USER thứ 2](#2.2)
+- [2.1 Chuẩn bị](#2.1)
+- [2.2 Phân tích](#2.2)
 
 [3. Kết luận](#3)
 
@@ -20,7 +20,8 @@
 
 Apache và NGINX là 2 hệ thống Web server phổ biến và được sử dụng rộng dãi trong nhiều hệ thống lớn với ưu điểm chung đều là các phần mềm OpenSource. 
 
-- Apache nổi tiếng làm việc hiệu quả với những xử lý động như PHP,... - Về NGINX, điểm mạnh của nó là xử lý rất nhanh các web tĩnh. 
+- Apache nổi tiếng làm việc hiệu quả với những xử lý động như PHP,...
+- NGINX có điểm mạnh là xử lý rất nhanh các web tĩnh. 
 
 Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache lại với nhau để bổ trợ cho nhau giúp hệ thống Webserver thêm phần hoàn thiện và đạt hiệu quả cao.
 
@@ -36,7 +37,8 @@ Trong giải pháp này, `NGINX` đóng vai trò là một `Reverse Proxy` (Prox
 OS | Ubuntu 16.04 | Ubuntu 16.04 | Windows 7 |
 NIC | eth0 | eth0 | LAN |
 IP | 192.168.100.194 | 192.168.100.195 | 192.168.100.22 |
-Package| NGINX | APACHE | Chrome + WireShark |
+Package| NGINX | APACHE | Firefox + WireShark |
+
 <a name="1.2"></a>
 ### 1.2 Lợi ích khi sử dụng Reverse Proxy
 
@@ -72,11 +74,11 @@ tcpdump -p tcp -w /opt/proxy.pcap
 
 **Bước 2** Tạo Request đến `Reverse Proxy`
 
-Dùng Firefox truy cập vào địa chỉ của `Reverse Proxy` với địa chỉ http://192.168.100.194
+Dùng Firefox truy cập vào `Reverse Proxy` với địa chỉ http://192.168.100.194
 
 <img src="http://image.prntscr.com/image/b5b9121529f5451da1d84a7d122eb49a.png" />
 
-Sau khi tải xong, bấm `CTRL` + `F5` để tạo request lần 2**
+Sau khi tải xong, bấm `CTRL` + `F5` để tạo request lần 2
 
 **Bước 3**: Dừng việc bắt gói, lấy file `.pcap`
 
@@ -91,7 +93,7 @@ Sau khi tải xong, bấm `CTRL` + `F5` để tạo request lần 2**
 <a name="2.2"></a>
 ### 2.2 Phân tích hoạt động
 
-### Request của USER thứ 1:
+### Request của USER lần thứ 1:
 
 <img src="http://image.prntscr.com/image/ba8a4a797f7a45c599aaffdeda525720.png" />
 
@@ -101,8 +103,7 @@ Sau khi tải xong, bấm `CTRL` + `F5` để tạo request lần 2**
 - `No.19`,  `Webserver` (192.168.100.195) xử lý request rồi gửi lại response cho `Reverse Proxy` có địa chỉ là 192.168.100.194
 - `No.25`, `Reverse Proxy` gửi trả response từ 192.168.100.195 đến người dùng có địa chỉ là 192.168.100.20
 
-<a name="2.2"></a>
-### Request của USER thứ 2:
+### Request của USER lần thứ 2:
 
 <img src="http://image.prntscr.com/image/0069291ab27f43719d643d6c6d694e3d.png" />
 
