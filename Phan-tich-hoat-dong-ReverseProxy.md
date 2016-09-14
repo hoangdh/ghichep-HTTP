@@ -18,16 +18,15 @@
 <a name="1"></a>
 ## 1. Giới thiệu
 
-Apache và NGINX là 2 hệ thống Web server phổ biến và được sử dụng rộng dãi trong nhiều hệ thống lớn với ưu điểm chung đều là các phần mềm OpenSource. 
+- Apache:
+    - Vai trò chung là web server
+    - Trong bài lab này Apache giữ vai trò `Webserver`, source code và DB sẽ được đặt trên máy chủ này.
+- Nginx:
+    - Là một web server tương tự Apache
+    - Trong bài lab này đóng vai trò là 1 `Reverse Proxy`
+    - Nginx đứng trước để tiếp nhận các kết nối và che chắn cho Webserver Apache.
 
-- Apache nổi tiếng làm việc hiệu quả với những xử lý động như PHP,...
-- NGINX có điểm mạnh là xử lý rất nhanh các web tĩnh. 
-
-Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache lại với nhau để bổ trợ cho nhau giúp hệ thống Webserver thêm phần hoàn thiện và đạt hiệu quả cao.
-
-Trong giải pháp này, `NGINX` đóng vai trò là một `Reverse Proxy` (Proxy  ngược) và xử lý các trang tĩnh, còn các trang động sẽ được chuyển cho `Apache` xử lý sau đó trả kết quả về cho `NGINX`.
-
-<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp3_zpsuuahyyuz.png" />
+<img width=75% src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp3_zpsv7qqne4u.png" />
 
 <a name="1.1"></a>
 ### 1.1 Mô hình
@@ -51,6 +50,8 @@ Package| NGINX | APACHE | Firefox + WireShark |
 <a name="1.3"></a>
 ### 1.3 Mô tả hoạt động
 
+Trong bài lab này, tôi sẽ bắt các gói tin tại máy chủ `Reverse Proxy` để phân tích luồng hoạt động của hệ thống khi mà người dùng truy cập.
+
 - Bước 1: Request của `USER` đến `Reverse Proxy`
 - Bước 2: Request của `USER` được `Reverse Proxy` chuyển đến `Webserver`
 - Bước 3: Webserver trả về reponse cho `Reverse Proxy`, cache được lưu lại ở `Reverse Proxy`
@@ -66,7 +67,7 @@ Package| NGINX | APACHE | Firefox + WireShark |
 <a name="2.1"></a>
 ### 2.1 Chuẩn bị
 
-Trong bài lab này, tôi sẽ phân tích cách thức hoạt động của `Reverse Proxy`. Dùng công cụ `tcpdump` để bắt gói tin trên máy chủ `Reverse Proxy` và các bước thực hiện như sau:
+Dùng công cụ `tcpdump` để bắt gói tin trên máy chủ `Reverse Proxy` và các bước thực hiện như sau:
 
 **Bước 1**: Bắt gói tin trên `Reverse Proxy`
 
