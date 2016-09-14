@@ -123,6 +123,7 @@ Package| NGINX | APACHE |
 
     - Dùng `apt-get` để cài đặt Apache2 và PHP
     
+    
     ```
     apt-get install -y apache2 php
     ```
@@ -156,7 +157,8 @@ Chúng ta truy cập bằng trình duyệt qua địa chỉ IP của Webserver -
 Nhìn vào phần tô đỏ, chúng ta thấy IP đang truy cập  là 192.168.100.5 khác so với Reverse Proxy - 192.168.100.194
 
 <a name="3"></a>
-## 3. Kiểm tra 
+
+## 3. Kiểm tra
 
 Chúng ta truy cập bằng trình duyệt qua địa chỉ IP của Reverse Proxy - 192.168.100.194
 
@@ -165,11 +167,13 @@ Chúng ta truy cập bằng trình duyệt qua địa chỉ IP của Reverse Pro
 Nhìn vào phần tô đỏ, chúng ta thấy IP đang truy cập  là Reverse Proxy - 192.168.100.194.
 
 <a name="4"></a>
+
 ## 4. BONUS: Chặn truy cập vào một số thư mục của Webserver bằng NGINX
 
 Trong một số trường hợp, chúng ta cần bảo vệ một số thư mục có chứa nội dung "nhạy cảm" vì vậy làm thế nào để bảo vệ chúng? Dưới đây, tôi sẽ sử dụng một máy tính với IP là `192.168.100.5` và một máy khác có IP là `192.168.100.250`. Ví dụ, tôi cho phép máy tính `192.168.100.5` có thể truy cập vào thư mục `/hoangdh`. Trên NGINX, chúng ta cấu hình như sau:
 
 <a name="4.1"></a>
+
 - Mở file cấu hình của domain chứa thư mục cần bảo vệ và thêm vào những dòng sau ở section `server`:
 
     ```
@@ -194,7 +198,9 @@ Sau khi cấu hình xong, chúng ta cho nginx load lại file cấu hình.
     ```sh
     nginx -s reload
     ```
+    
 <a name="4.2"></a>
+
 Kiểm tra trên máy tính có IP  192.168.100.250, ta thấy truy cập đã bị chặn.
 
 <img width=150% src="http://image.prntscr.com/image/ab136ebb25334ad29f26c207426cdccb.png" />
