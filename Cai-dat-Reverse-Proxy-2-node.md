@@ -104,13 +104,12 @@ Package| NGINX | APACHE |
     
    
    - Bật nginx và cho khởi động cùng hệ thống
-
    
         ```
         systemctl start nginx
         systemctl enable nginx
         ```
-
+        
 <a name="2.2"></a>
 ### 2.2 Cài đặt và cấu hình Apache2 ở node 2
 
