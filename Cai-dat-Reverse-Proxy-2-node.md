@@ -36,10 +36,15 @@ Apache và NGINX là 2 hệ thống Web server phổ biến và được sử d�
 
 Với những ưu điểm đó, người ta đã kết hợp NGINX và Apache lại với nhau để bổ trợ cho nhau giúp hệ thống Webserver thêm phần hoàn thiện và đạt hiệu quả cao.
 
-Trong giải pháp này, `NGINX` đóng vai trò là một `Reverse Proxy` (Proxy  ngược) và xử lý các trang tĩnh, còn các trang động sẽ được chuyển cho `Apache` xử lý sau đó trả kết quả về cho `NGINX`.
+- Apache:
+    - Vai trò chung là web server
+    - Trong bài lab này Apache giữ vai trò `Webserver`, source code và DB sẽ được đặt trên máy chủ này.
+- Nginx:
+    - Là một web server tương tự Apache
+    - Trong bài lab này đóng vai trò là 1 `Reverse Proxy`
+    - Nginx đứng trước để tiếp nhận các kết nối và che chắn cho Webserver Apache.
 
-
-<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp3_zpsuuahyyuz.png" />
+<img src="http://i1363.photobucket.com/albums/r714/HoangLove9z/rp3_zpsv7qqne4u.png" />
 
 <a name="1.2"></a>
 ### 1.2 Mô hình cài đặt
@@ -63,41 +68,42 @@ Package| NGINX | APACHE |
 
     - Dùng `apt-get` để cài đặt NGINX
     
-    ```
-        apt-get install -y nginx
+    ```sh
+    apt-get install -y nginx
     ```
 
 - Cấu hình
 
     - Mở file `default` bằng `vi`
         
-        ```
-           vi /etc/nginx/sites-available/default
+        ```sh
+        vi /etc/nginx/sites-available/default
         ```
         
     - Sửa file với nội dung sau:
     
-        ```
-            server {
-                listen 80;
-                server_name _;
+        ```sh
+        server {
+            listen 80;
+            server_name _;
 
-                location / {
-                    proxy_pass http://192.168.100.195;
-                    proxy_set_header Host $host;
-                    proxy_set_header X-Real-IP $remote_addr;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                    proxy_set_header X-Forwarded-Proto $scheme;
-                }
+            location / {
+                proxy_pass http://192.168.100.195;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
             }
+        }
         ```
-        **Note:** `proxy_pass http://192.168.100.195;` địa chỉ của Webserver
+        **Note:** 
+        - `proxy_pass http://192.168.100.195;` địa chỉ của Webserver
         
 - Kiểm tra cấu hình và khởi động
     
     - Kiểm tra cấu hình
         
-        ```
+        ```sh
         nginx -t
         ```
         
@@ -118,7 +124,7 @@ Package| NGINX | APACHE |
     - Dùng `apt-get` để cài đặt Apache2 và PHP
     
     ```
-        apt-get install -y apache2 php
+    apt-get install -y apache2 php
     ```
 
 - Cấu hình
@@ -127,15 +133,15 @@ Package| NGINX | APACHE |
     
     
     ```
-        echo '<?php phpinfo(); ?>' > /var/www/html/index.php
+    echo '<?php phpinfo(); ?>' > /var/www/html/index.php
     ```
     
     - Bật apache2 và cho khởi động cùng hệ thống
-    
-        ```
-        systemctl start apache2
-        systemctl enable apache2
-        ``` 
+
+    ```
+    systemctl start apache2
+    systemctl enable apache2
+    ``` 
    
 <a name="2.3"></a>
 
@@ -161,39 +167,39 @@ Nhìn vào phần tô đỏ, chúng ta thấy IP đang truy cập  là Reverse P
 <a name="4"></a>
 ## 4. BONUS: Chặn truy cập vào một số thư mục của Webserver bằng NGINX
 
-Trong một số trường hợp, chúng ta cần bảo vệ một số thư mục có chứa nội dung "nhạy cảm" vì vậy làm thế nào để bảo vệ chúng? Trên NGINX, chúng ta cấu hình như sau:
+Trong một số trường hợp, chúng ta cần bảo vệ một số thư mục có chứa nội dung "nhạy cảm" vì vậy làm thế nào để bảo vệ chúng? Dưới đây, tôi sẽ sử dụng một máy tính với IP là `192.168.100.5` và một máy khác có IP là `192.168.100.250`. Ví dụ, tôi cho phép máy tính `192.168.100.5` có thể truy cập vào thư mục `/hoangdh`. Trên NGINX, chúng ta cấu hình như sau:
 
 <a name="4.1"></a>
 - Mở file cấu hình của domain chứa thư mục cần bảo vệ và thêm vào những dòng sau ở section `server`:
 
-```
-[server]
-...
- location /patch/to/folder/ {
-      
-          allow 192.168.100.5;
-          deny all;
-          proxy_pass http://192.168.100.195/$uri;
-       }
-...
-```
+    ```
+    [server]
+    ...
+     location /hoangdh/ {
+          
+              allow 192.168.100.5;
+              deny all;
+              proxy_pass http://192.168.100.195/$uri;
+   }
+    ...
+    ```
 
-- `/patch/to/folder/`: Thay thế thư mục bạn muốn bảo vệ vào 
+- `/hoangdh/`: Thay thế thư mục bạn muốn bảo vệ vào 
 - `allow 192.168.100.5;`: Cho phép IP 192.168.100.5 truy cập vào thư mục
 - `deny all`: Cấm tất cả không cho phép truy cập trừ những IP `allow`
 - `proxy_pass http://192.168.100.195/$uri;`: Đẩy request này sang Webserver `192.168.100.195`
     
 Sau khi cấu hình xong, chúng ta cho nginx load lại file cấu hình.
 
-```
-nginx -s reload
-```
+    ```sh
+    nginx -s reload
+    ```
 
 <a name="4.2"></a>
-Kiểm tra trên máy tính có IP khác 192.168.100.5
+Kiểm tra trên máy tính có IP  192.168.100.250, ta thấy truy cập đã bị chặn.
 
-<img src="http://image.prntscr.com/image/ab136ebb25334ad29f26c207426cdccb.png" />
+<img align="middle" src="http://image.prntscr.com/image/ab136ebb25334ad29f26c207426cdccb.png" />
 
-Kiểm tra trên máy tính có IP là 192.168.100.5
+Kiểm tra trên máy tính có IP là 192.168.100.5, ta có thể vào bình thường.
 
 <img src="http://image.prntscr.com/image/f187748dcb6349b0bd8e7e778d7d6303.png" />
