@@ -92,6 +92,7 @@ Package| NGINX | APACHE |
             }
         ```
         **Note:** `proxy_pass http://192.168.100.195;` địa chỉ của Webserver
+        
 - Kiểm tra cấu hình và khởi động
     
     - Kiểm tra cấu hình
@@ -100,12 +101,11 @@ Package| NGINX | APACHE |
         nginx -t
         ```
         
-<img src="http://image.prntscr.com/image/d0e39f11456d454d9fb8b0206d343827.png" />
-    
-   
+        <img src="http://image.prntscr.com/image/d0e39f11456d454d9fb8b0206d343827.png" />
+       
    - Bật nginx và cho khởi động cùng hệ thống
    
-        ```
+        ```sh
         systemctl start nginx
         systemctl enable nginx
         ```
