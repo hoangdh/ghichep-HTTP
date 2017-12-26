@@ -203,10 +203,18 @@ Chọn user `IUSR`, **Full controll**, OK, OK
 
 ### 2.6 Tạo file test PHP 
 
-Tạo một file có nội dung `index.php`
+Xóa tất cả file trong `C:\inetpub\wwwroot`, tạo một file có nội dung `index.php` và lưu tại thư mục
 
 ```
 <?php
 	phpinfo();
 ?>
 ```
+
+Truy cập vào địa chỉ
+
+```
+http://localhost/
+```
+
+<img src="/images/7.test.png" />
