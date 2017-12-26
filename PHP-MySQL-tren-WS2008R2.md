@@ -10,8 +10,8 @@
 	- [2.4 Tạo pool ứng dụng PHP](#24)
 	- [2.5 Tạo và Phân quyền thư mục chứa mã nguồn Website](#25)
 	- [2.6 Tạo file test PHP ](#26)
-- [3. ](#3)
-- [4. ](#4)
+- [3. Kiểm tra](#3)
+- [4. Tham khảo](#4)
 
 
 ## 1. Giới thiệu
@@ -26,7 +26,7 @@ Chúng ta chuẩn bị một máy chủ đã cài đặt sẵn hệ điều hàn
 
 <img src="/images/1.srv-manager.png" />
 
-- Bước 1: Cài đặt .NET Framework 3.5.1
+- Cài đặt .NET Framework 3.5.1 và IIS
 
 Chọn **Features** > **Add Features**:
 
@@ -52,7 +52,7 @@ Giới thiệu về IIS, bấm **Next** để tiếp tục.
 
 <img src="/images/1.feature6.png" />
 
-Tick chọn **Common HTTP Features**, **CGI** và **IIS Managerment Console**, sau đó **Next**
+Tick chọn **Common HTTP Features**, **CGI** và **IIS Management Console**, sau đó **Next**
 
 <img src="/images/1.feature7.png" />
 
@@ -71,6 +71,14 @@ http://localhost/
 <img src="/images/1.test.png" />
 
 
+### 2.2 Tải Microsoft Web Platform Installer 5.0
 
+- **Bước 1:** Cài đặt .NET Framework 4.5
+
+Link: https://www.microsoft.com/en-us/download/details.aspx?id=30653
+
+- **Bước 2:** Tải công cụ Microsoft Web Platform Installer 5.0
+	
+Link: https://www.microsoft.com/web/downloads/platform.aspx
 
  
