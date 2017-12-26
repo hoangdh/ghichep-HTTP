@@ -217,4 +217,4 @@ Truy cập vào địa chỉ
 http://localhost/
 ```
 
-<img src="/images/7.test.png" />
+<img src="/images/8.test.png" />
