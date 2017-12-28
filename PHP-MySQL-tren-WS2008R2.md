@@ -238,6 +238,21 @@ http://localhost/
 
 ## 3. Kiểm tra
 
+### 3.1 Kiểm tra MySQL
+
+- **Bước 1:** Vào **Start** và tìm kiếm "*mysql client*"
+
+<img src="/images/8.test-mysql1.png" />
+
+- **Bước 2:** Nhập Mật khẩu của `root` vừa khai báo ở bên trên
+
+<img src="/images/8.test-mysql2.png" />
+
+- **Bước 3:** Thực hiện lệnh `show databases;` để xem tất cả Database có trên Server
+
+<img src="/images/8.test-mysql3.png" />
+
+
 <a name="4">
 
 ## 4. Tham khảo 
