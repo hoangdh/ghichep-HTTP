@@ -14,11 +14,17 @@
 - [4. Tham khảo](#4)
 
 
+<a name="1"> 
+
 ## 1. Giới thiệu
 
 `IIS` - `Internet Infomation Services` là một Web Server nổi tiếng của Microsoft để chạy những ứng dụng `ASP.NET`. Nhưng hòa chung với xu thế Mã nguồn mở, `IIS` cũng có thể chạy các ứng dụng được viết bằng PHP sử dụng MySQL. Hướng dẫn dưới đây sẽ giúp bạn cấu hình PHP và MySQL chạy trực tiếp lên IIS trên Windows Server 2008 R2.
 
+<a name="2"> 
+
 ## 2. Các bước tiến hành
+
+<a name="2.1"> 
 
 ### 2.1 Cài đặt IIS
 
@@ -70,6 +76,7 @@ http://localhost/
 
 <img src="/images/1.test.png" />
 
+<a name="2.1"> 
 
 ### 2.2 Tải Microsoft Web Platform Installer 5.0
 
@@ -107,6 +114,8 @@ Sau khi khởi động xong, bấm vào tab **Products** để xem các gói cà
 
 <img src="/images/3.webpi3.png" />
 
+<a name="2.3"> 
+
 ### 2.3  Cài đặt PHP và MySQL
 
 Tại tab **Products** trong cửa sổ của **Web PI**, chúng ta cài đặt lần lượt PHP và MySQL.
@@ -133,7 +142,7 @@ Bấm tiếp **I Accept** để đồng ý cài đặt.
 
 Chờ 5-10p cho quá trình cài đặt diễn ra. Quá trình cài phụ thuộc vào tốc độ đường truyền của bạn!
 
-<img src="/images/4.php4.png" />
+<img src="/images/4.php5.png" />
 
 Quá trình cài đặt hoàn tất, bấm **Finish** để đóng cửa sổ.
  
@@ -163,6 +172,8 @@ Quá trình cài đặt hoàn tất, bấm **Finish** để đóng cửa sổ.
 
 <img src="/images/5.mysql6.png" />
 
+<a name="2.4"> 
+
 ### 2.4 Tạo pool ứng dụng PHP
 
 - **Bước 1:** Mở IIS Manager > Chọn tên Server của bạn > Chọn tiếp **Application Pools** > **Add Application Pool...**
@@ -176,6 +187,8 @@ Quá trình cài đặt hoàn tất, bấm **Finish** để đóng cửa sổ.
 Bấm OK để lưu. Chúng ta thấy một Pool đã được tạo.
 
 <img src="/images/6.addpool3.png" />
+
+<a name="2.5"> 
 
 ### 2.5 Tạo và Phân quyền thư mục chứa mã nguồn Website
 
@@ -201,6 +214,8 @@ Chọn user `IUSR`, **Full controll**, OK, OK
 
 <img src="/images/7.pq6.png" />
 
+<a name="2.6"> 
+
 ### 2.6 Tạo file test PHP 
 
 Xóa tất cả file trong `C:\inetpub\wwwroot`, tạo một file có nội dung `index.php` và lưu tại thư mục
@@ -218,3 +233,13 @@ http://localhost/
 ```
 
 <img src="/images/8.test.png" />
+
+<a name="3">
+
+## 3. Kiểm tra
+
+<a name="4">
+
+## 4. Tham khảo 
+
+- https://docs.microsoft.com/en-us/iis/application-frameworks/scenario-build-a-php-website-on-iis/configuring-step-1-install-iis-and-php
